@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model HomeViewModel
+
+<h1>Star Burgers</h1>
+
+<div>
+    <label>Nosso cardápio</label>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Lanche</th>
+                <th>Ingredientes</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Cardapio)
+            {
+                <tr>
+                    <td>@(item.Descricao)</td>
+                    <td>@(item.ListaIngredientes)</td>
+                    <td>@(item.ValorTotal.ToString("c"))</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
