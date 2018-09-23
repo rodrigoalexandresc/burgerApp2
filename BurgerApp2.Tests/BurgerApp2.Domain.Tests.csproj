@@ -17,8 +17,4 @@
     <ProjectReference Include="..\BurgerApp2\BurgerApp2.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Promocoes\" />
-  </ItemGroup>
-
 </Project>
