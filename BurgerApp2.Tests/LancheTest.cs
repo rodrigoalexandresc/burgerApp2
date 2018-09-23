@@ -3,7 +3,7 @@ using BurgerApp2.Domain.Enums;
 using System.Collections.Generic;
 using Xunit;
 
-namespace BurgerApp2.Tests
+namespace BurgerApp2.Domain.Tests
 {
     public class LancheTest
     {
