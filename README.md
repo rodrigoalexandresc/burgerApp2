@@ -4,11 +4,13 @@ Exemplo de aplicação de hamburgeria feito com TDD em .Net Core 2 e Asp.NET MVC
 
 Projetos:
 
-BurgerApp2
-Projeto Asp.NET MVC para front-end
+BurgerApp2: Projeto Asp.NET MVC para front-end
+----------------------------------------------
+
+*Para rodar a aplição use dotnet run na raiz deste projeto ou no Visual Studio > Debug > Start debugging
 
 BurgerApp2.Domain: Domínio e regras de negócio 
-==============================================
+----------------------------------------------
 
 Lanche:
 Classe representando lanche lista de ingredientes, calculo do valor bruto e valor total (aplicadas as promoções vigentes)
@@ -27,7 +29,9 @@ Service para gerar cardapio padrão para tela principal usando DI (dimuindo acop
 
 
 BurgerApp2.Domain.Tests: Testes do Domínio e regras de negócio  
-==============================================================
+--------------------------------------------------------------
+
+*Para rodar os testes use dotnet test na raiz deste projeto ou no Visual Studio > Test Explorer > Run all
 
 LancheTest:
 Testes do calculo de valor de lanches e promoções vigentes
