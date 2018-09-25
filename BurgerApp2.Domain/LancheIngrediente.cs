@@ -12,6 +12,7 @@ namespace BurgerApp2.Domain
         }
 
         public IngredienteTipoEnum Tipo { get; private set; }
+        public string Descricao { get; private set; }
         public decimal Quantidade { get; private set; }
         public decimal ValorUnitario { get; private set; }
     }

@@ -1,5 +1,4 @@
-﻿using BurgerApp2.Domain;
-using BurgerApp2.Domain.Enums;
+﻿using BurgerApp2.Domain.Enums;
 using System.Collections.Generic;
 using Xunit;
 
@@ -23,7 +22,7 @@ namespace BurgerApp2.Domain.Tests
         [Fact]
         public void PromocaoLightTest()
         {
-            var light = new Lanche("DuploCarne", new List<LancheIngrediente>
+            var light = new Lanche("Light", new List<LancheIngrediente>
             {
                 new LancheIngrediente(IngredienteTipoEnum.Alface, 1, 0.4m),
                 new LancheIngrediente(IngredienteTipoEnum.HamburgerDeCarne, 1, 3m),
@@ -34,9 +33,9 @@ namespace BurgerApp2.Domain.Tests
         }
 
         [Fact]
-        public void PromocaoMuitaCarne()
+        public void PromocaoMuitaCarneTest()
         {
-            var duploCarne = new Lanche("Light", new List<LancheIngrediente>
+            var duploCarne = new Lanche("MuitaCarne", new List<LancheIngrediente>
             {
                 new LancheIngrediente(IngredienteTipoEnum.Alface, 1, 0.4m),
                 new LancheIngrediente(IngredienteTipoEnum.Bacon, 1, 2m),
@@ -48,9 +47,23 @@ namespace BurgerApp2.Domain.Tests
         }
 
         [Fact]
-        public void PromocaoMuitoQueijo()
+        public void PromocaoMuitaCarneComVariasPorcoesTest()
         {
-            var duploQueijo = new Lanche("Light", new List<LancheIngrediente>
+            var duploCarne = new Lanche("MuitaCarne", new List<LancheIngrediente>
+            {
+                new LancheIngrediente(IngredienteTipoEnum.Alface, 1, 0.4m),
+                new LancheIngrediente(IngredienteTipoEnum.Bacon, 1, 2m),
+                new LancheIngrediente(IngredienteTipoEnum.HamburgerDeCarne, 6, 3m),
+                new LancheIngrediente(IngredienteTipoEnum.Queijo, 1, 1.5m)
+            });
+
+            Assert.Equal(15.9m, duploCarne.ValorTotal);
+        }
+
+        [Fact]
+        public void PromocaoMuitoQueijoTest()
+        {
+            var duploQueijo = new Lanche("Queijo", new List<LancheIngrediente>
             {
                 new LancheIngrediente(IngredienteTipoEnum.Alface, 1, 0.4m),
                 new LancheIngrediente(IngredienteTipoEnum.Bacon, 1, 2m),
@@ -59,6 +72,20 @@ namespace BurgerApp2.Domain.Tests
             });
 
             Assert.Equal(8.4m, duploQueijo.ValorTotal);
+        }
+
+        [Fact]
+        public void PromocaoMuitoQueijoComVariasPorcoesTest()
+        {
+            var duploQueijo = new Lanche("Queijo", new List<LancheIngrediente>
+            {
+                new LancheIngrediente(IngredienteTipoEnum.Alface, 1, 0.4m),
+                new LancheIngrediente(IngredienteTipoEnum.Bacon, 1, 2m),
+                new LancheIngrediente(IngredienteTipoEnum.HamburgerDeCarne, 1, 3m),
+                new LancheIngrediente(IngredienteTipoEnum.Queijo, 6, 1.5m)
+            });
+
+            Assert.Equal(11.4m, duploQueijo.ValorTotal);
         }
     }
 }

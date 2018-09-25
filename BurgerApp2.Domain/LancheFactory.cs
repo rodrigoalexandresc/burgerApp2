@@ -1,51 +1,46 @@
 ﻿using BurgerApp2.Domain.Enums;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BurgerApp2.Domain.Cardapio
 {
     public class LancheFactory
     {
 
-        public Lanche CriarLanchePersonalizado()
+        public Lanche CriarLanchePersonalizado(List<LancheIngrediente> lista)
         {
-            return new Lanche("Personalizado", new List<LancheIngrediente>
-            {
-
-            });
+            return new Lanche("Personalizado", lista);
         }
 
         public Lanche CriarXEggBacon()
         {
             return new Lanche("X-Egg-Bacon", new List<LancheIngrediente>
-                    {
-                        CriarOvo(), CriarBacon(), CriarHamburger(), CriarQueijo()
-                    });
+            {
+                CriarOvo(), CriarBacon(), CriarHamburger(), CriarQueijo()
+            });
         }
 
         public Lanche CriarXEgg()
         {
             return new Lanche("X-Egg", new List<LancheIngrediente>
-                    {
-                        CriarOvo(), CriarHamburger(), CriarQueijo()
-                    });
+            {
+                CriarOvo(), CriarHamburger(), CriarQueijo()
+            });
         }
 
         public Lanche CriarXBurger()
         {
             return new Lanche("X-Burger", new List<LancheIngrediente>
-                    {
-                        CriarHamburger(), CriarQueijo()
-                    });
+            {
+                CriarHamburger(), CriarQueijo()
+            });
         }
 
         public Lanche CriarXBacon()
         {
             return new Lanche("X-Bacon", new List<LancheIngrediente>
-                    {
-                        CriarBacon(), CriarHamburger(), CriarQueijo()
-                    });
+            {
+                CriarBacon(), CriarHamburger(), CriarQueijo()
+            });
         }
 
         private LancheIngrediente CriarBacon() => new LancheIngrediente(IngredienteTipoEnum.Bacon, 1, 2m);
