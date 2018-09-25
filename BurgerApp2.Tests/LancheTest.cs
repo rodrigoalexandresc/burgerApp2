@@ -20,6 +20,19 @@ namespace BurgerApp2.Domain.Tests
         }
 
         [Fact]
+        public void CalcularValorBrutoComOutrosValoresTest()
+        {
+            var xBacon = new Lanche("X-Bacon", new List<LancheIngrediente>
+            {
+                new LancheIngrediente(IngredienteTipoEnum.Bacon, 1, 3m),
+                new LancheIngrediente(IngredienteTipoEnum.HamburgerDeCarne, 1, 4m),
+                new LancheIngrediente(IngredienteTipoEnum.Queijo, 1, 2m)
+            });
+
+            Assert.Equal(9m, xBacon.ValorBruto);
+        }
+
+        [Fact]
         public void PromocaoLightTest()
         {
             var light = new Lanche("Light", new List<LancheIngrediente>
