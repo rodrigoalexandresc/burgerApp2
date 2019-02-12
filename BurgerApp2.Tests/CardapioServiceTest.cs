@@ -9,7 +9,10 @@ namespace BurgerApp2.Domain.Tests
         [Fact]
         public void ObterTest()
         {
-            var cardapioService = new CardapioService();
+            var ingredienteFactory = new IngredienteFactory();
+            var lancheFactory = new LancheFactory(ingredienteFactory);
+
+            var cardapioService = new CardapioService(lancheFactory);
             var cardapio = cardapioService.Obter();
 
             Assert.IsType<List<Lanche>>(cardapio);

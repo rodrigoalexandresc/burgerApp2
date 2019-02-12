@@ -6,9 +6,9 @@ namespace BurgerApp2.Domain.Cardapio
     {
         readonly LancheFactory lancheFactory;
 
-        public CardapioService()
+        public CardapioService(LancheFactory lancheFactory)
         {
-            lancheFactory = new LancheFactory();
+            this.lancheFactory = lancheFactory;
         }
 
         public List<Lanche> Obter()

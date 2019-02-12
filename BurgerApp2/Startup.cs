@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BurgerApp2.Domain;
 using BurgerApp2.Domain.Cardapio;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,8 @@ namespace BurgerApp2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ICardapioService, CardapioService>();
+            services.AddScoped<LancheFactory>(); 
+            services.AddScoped<IngredienteFactory>();
 
             services.AddMvc();            
         }

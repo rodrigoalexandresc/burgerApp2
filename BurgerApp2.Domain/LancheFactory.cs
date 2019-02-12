@@ -5,6 +5,11 @@ namespace BurgerApp2.Domain.Cardapio
 {
     public class LancheFactory
     {
+        readonly IngredienteFactory ingredienteFactory;
+        public LancheFactory(IngredienteFactory ingredienteFactory)
+        {
+            this.ingredienteFactory = ingredienteFactory;
+        }
 
         public Lanche CriarLanchePersonalizado(List<LancheIngrediente> lista)
         {
@@ -15,7 +20,10 @@ namespace BurgerApp2.Domain.Cardapio
         {
             return new Lanche("X-Egg-Bacon", new List<LancheIngrediente>
             {
-                CriarOvo(), CriarBacon(), CriarHamburger(), CriarQueijo()
+                ingredienteFactory.CriarOvo(),
+                ingredienteFactory.CriarBacon(),
+                ingredienteFactory.CriarHamburger(),
+                ingredienteFactory.CriarQueijo()
             });
         }
 
@@ -23,7 +31,9 @@ namespace BurgerApp2.Domain.Cardapio
         {
             return new Lanche("X-Egg", new List<LancheIngrediente>
             {
-                CriarOvo(), CriarHamburger(), CriarQueijo()
+                ingredienteFactory.CriarOvo(),
+                ingredienteFactory.CriarHamburger(),
+                ingredienteFactory.CriarQueijo()
             });
         }
 
@@ -31,7 +41,8 @@ namespace BurgerApp2.Domain.Cardapio
         {
             return new Lanche("X-Burger", new List<LancheIngrediente>
             {
-                CriarHamburger(), CriarQueijo()
+                ingredienteFactory.CriarHamburger(),
+                ingredienteFactory.CriarQueijo()
             });
         }
 
@@ -39,14 +50,10 @@ namespace BurgerApp2.Domain.Cardapio
         {
             return new Lanche("X-Bacon", new List<LancheIngrediente>
             {
-                CriarBacon(), CriarHamburger(), CriarQueijo()
+                ingredienteFactory.CriarBacon(),
+                ingredienteFactory.CriarHamburger(),
+                ingredienteFactory.CriarQueijo()
             });
         }
-
-        private LancheIngrediente CriarBacon() => new LancheIngrediente(IngredienteTipoEnum.Bacon, 1, 2m);
-        private LancheIngrediente CriarHamburger() => new LancheIngrediente(IngredienteTipoEnum.HamburgerDeCarne, 1, 3m);
-        private LancheIngrediente CriarAlface() => new LancheIngrediente(IngredienteTipoEnum.Alface, 1, 0.4m);
-        private LancheIngrediente CriarOvo() => new LancheIngrediente(IngredienteTipoEnum.Ovo, 1, 0.8m);
-        private LancheIngrediente CriarQueijo() => new LancheIngrediente(IngredienteTipoEnum.Queijo, 1, 1.5m);
     }
 }
